@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="UTF-8">
+  <title>领域逻辑测试</title>
+  <body><pre id="result">运行中...</pre></body>
+  <script type="module">
+    import { planWeek, scoreRecipe } from "../src/domain/planner.js";
+    import { buildShoppingItems } from "../src/domain/shopping.js";
+    import { appendDish, normalizeMealEntry, removeDish } from "../src/domain/meals.js";
+
+    const results = [];
+    const test = (name, fn) => {
+      try { fn(); results.push(`PASS ${name}`); }
+      catch (error) { results.push(`FAIL ${name}: ${error.message}`); }
+    };
+    const assert = (condition, message) => { if (!condition) throw new Error(message); };
+    const recipes = [
+      { id: "b", name: "粥", category: "主食", meals: ["breakfast"], minutes: 10, ingredients: [{ name: "米", category: "主食" }] },
+      { id: "b2", name: "鸡蛋", category: "早餐", meals: ["breakfast"], minutes: 8, ingredients: [{ name: "鸡蛋", category: "肉蛋" }] },
+      { id: "l", name: "肉丝", category: "荤菜", meals: ["lunch", "dinner"], minutes: 20, ingredients: [{ name: "猪肉", category: "肉蛋" }] },
+      { id: "v", name: "青菜", category: "素菜", meals: ["lunch", "dinner"], minutes: 10, ingredients: [{ name: "青菜", category: "蔬菜及其他" }] },
+      { id: "m", name: "米饭", category: "主食", meals: ["lunch", "dinner"], minutes: 30, ingredients: [{ name: "大米", category: "主食" }] },
+      { id: "s", name: "蛋汤", category: "汤", meals: ["lunch", "dinner"], minutes: 12, ingredients: [{ name: "鸡蛋", category: "肉蛋" }] },
+    ];
+
+    test("不为早餐选择午晚餐菜谱", () => {
+      const entries = planWeek({ recipes, seed: "test" });
+      assert(entries["0-breakfast"].dishes.some((dish) => dish.recipeId === "b"), "早餐餐次过滤失败");
+    });
+    test("近期菜谱降低评分", () => {
+      const base = { meal: "lunch", day: 0, seed: "x", todayRecipeIds: new Set(), todayIngredients: new Set(), weekIngredients: new Set() };
+      assert(scoreRecipe(recipes[2], { ...base, recentIds: new Set(["l"]) }) < scoreRecipe(recipes[2], { ...base, recentIds: new Set() }), "近期惩罚无效");
+    });
+    test("合并相同食材并保留来源", () => {
+      const items = buildShoppingItems({ week: { entries: { a: { recipeId: "l" }, b: { recipeId: "l" } } }, recipes });
+      assert(items.length === 1 && items[0].recipeIds.length === 1, "食材合并失败");
+    });
+    test("旧单菜餐格自动转为多菜数组", () => {
+      const entry = normalizeMealEntry({ recipeId: "l", name: "肉丝", source: "library" });
+      assert(entry.dishes.length === 1 && entry.dishes[0].recipeId === "l", "旧餐格没有正确迁移");
+    });
+    test("同一餐可以追加并单独删除菜品", () => {
+      const first = appendDish(null, { recipeId: "l", name: "肉丝" });
+      const second = appendDish(first, { recipeId: "v", name: "青菜" });
+      const remaining = removeDish(second, 0);
+      assert(second.dishes.length === 2, "没有追加第二道菜");
+      assert(remaining.dishes.length === 1 && remaining.dishes[0].recipeId === "v", "单道删除影响错误");
+    });
+    test("自动规划按餐次补齐多道菜", () => {
+      const entries = planWeek({ recipes, seed: "multi" });
+      assert(entries["0-breakfast"].dishes.length === 2, "早餐没有规划两道菜");
+      assert(entries["0-lunch"].dishes.length === 3, "午餐没有规划三道菜");
+      assert(entries["0-dinner"].dishes.length === 3, "晚餐没有规划三道菜");
+    });
+    test("采购清单汇总同餐全部菜品", () => {
+      const week = { entries: { a: { dishes: [{ recipeId: "l" }, { recipeId: "v" }] } } };
+      const items = buildShoppingItems({ week, recipes });
+      assert(items.some((item) => item.name === "猪肉") && items.some((item) => item.name === "青菜"), "遗漏同餐菜品食材");
+    });
+    document.querySelector("#result").textContent = results.join("\n");
+    document.body.dataset.passed = String(results.every((line) => line.startsWith("PASS")));
+  </script>
+</html>
