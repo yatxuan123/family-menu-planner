@@ -7,8 +7,9 @@ export function renderEditorPanel(state) {
   const mealLabel = MEALS.find((item) => item.id === meal)?.label;
   const entry = state.week.entries[state.selectedSlot];
   const dishes = getDishes(entry);
+  const selectedRecipeIds = new Set(dishes.map((dish) => dish.recipeId).filter(Boolean));
   const query = state.recipeQuery.toLowerCase();
-  const matches = state.recipes.filter((recipe) => recipe.meals.includes(meal) && (`${recipe.name} ${recipe.ingredients.map((i) => i.name).join(" ")}`).toLowerCase().includes(query));
+  const matches = state.recipes.filter((recipe) => !selectedRecipeIds.has(recipe.id) && recipe.meals.includes(meal) && (`${recipe.name} ${recipe.ingredients.map((i) => i.name).join(" ")}`).toLowerCase().includes(query));
   return `<div class="editor-content">
     <div class="editor-heading"><div><span class="eyebrow">${DAYS[Number(day)]} · ${mealLabel}</span><h2>添加菜品</h2></div><button class="icon-button" data-action="close-editor" aria-label="关闭编辑面板">×</button></div>
     ${dishes.length ? `<div class="current-dishes"><span class="eyebrow">本餐已选 ${dishes.length} 道</span>${dishes.map((dish, index) => `<div class="current-dish"><strong>${escapeHtml(dish.name)}</strong><button class="icon-button" data-remove-dish="${index}" aria-label="删除${escapeHtml(dish.name)}">×</button></div>`).join("")}</div>` : ""}

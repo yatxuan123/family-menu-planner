@@ -17,9 +17,10 @@ assert.equal(legacy.dishes.length, 1, "旧单菜餐格应转为一项 dishes 数
 const twoDishes = appendDish(appendDish(null, { recipeId: "l1", name: "肉丝" }), { recipeId: "l2", name: "青菜" });
 assert.equal(twoDishes.dishes.length, 2, "同一餐应能追加两道菜");
 assert.deepEqual(removeDish(twoDishes, 0).dishes.map((dish) => dish.recipeId), ["l2"], "应只删除指定菜品");
-const manyDishes = ["b1", "b2", "l1", "l2", "l3"].reduce((entry, recipeId) => appendDish(entry, { recipeId, name: recipeId }), null);
-assert.equal(manyDishes.dishes.length, 5, "不同菜品不应有数量上限");
-assert.equal(appendDish(manyDishes, { recipeId: "l1", name: "肉丝" }).dishes.length, 5, "同一道菜不应重复添加");
+const recipeIdsWithoutLimit = Array.from({ length: 12 }, (_, index) => `dish-${index + 1}`);
+const manyDishes = recipeIdsWithoutLimit.reduce((entry, recipeId) => appendDish(entry, { recipeId, name: recipeId }), null);
+assert.equal(manyDishes.dishes.length, 12, "不同菜品不应有数量上限");
+assert.equal(appendDish(manyDishes, { recipeId: "dish-1", name: "重复菜品" }).dishes.length, 12, "同一道菜不应重复添加");
 
 const planned = planWeek({ recipes, seed: "multi" });
 assert.equal(planned["0-breakfast"].dishes.length, 2, "早餐应补齐两道菜");
