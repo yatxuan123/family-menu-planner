@@ -1,7 +1,7 @@
 {
-  "name": "家常菜单",
-  "short_name": "家常菜单",
-  "description": "本地优先的一周家庭菜单与采购清单",
+  "name": "家庭菜单 - 一周三餐规划",
+  "short_name": "家庭菜单",
+  "description": "支持每餐多道菜、历史菜单和采购清单的家庭菜单规划工具",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
