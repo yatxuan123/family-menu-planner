@@ -1,5 +1,5 @@
 import { openDatabase, requestToPromise } from "./db.js";
-import { SEED_RECIPES } from "./seed-recipes.js";
+import { getMissingSeedRecipes, SEED_DATA_VERSION } from "./seed-recipes.js";
 
 const now = () => new Date().toISOString();
 const id = (prefix) => `${prefix}-${crypto.randomUUID()}`;
@@ -74,8 +74,10 @@ async function remove(storeName, key) {
 
 export async function ensureInitialized() {
   const recipes = await getAll("recipes");
-  if (!recipes.length) {
-    for (const item of SEED_RECIPES) await put("recipes", item);
+  const seedVersion = await getOne("settings", "seed-recipes-version");
+  if (!seedVersion || seedVersion.version < SEED_DATA_VERSION) {
+    for (const item of getMissingSeedRecipes(recipes)) await put("recipes", item);
+    await put("settings", { id: "seed-recipes-version", version: SEED_DATA_VERSION, updatedAt: now() });
   }
   const currentId = `week-${getWeekId()}`;
   if (!(await getOne("weeks", currentId))) await put("weeks", createEmptyWeek());

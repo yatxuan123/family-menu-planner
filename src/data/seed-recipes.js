@@ -23,6 +23,8 @@ function ingredientCategory(name) {
   return "蔬菜及其他";
 }
 
+export const SEED_DATA_VERSION = 2;
+
 export const SEED_RECIPES = [
   recipe("r01", "小米粥", "主食", ["breakfast"], ["小米"], 30),
   recipe("r02", "鸡蛋饼", "早餐", ["breakfast"], ["鸡蛋", "面粉", "葱"], 15),
@@ -52,4 +54,54 @@ export const SEED_RECIPES = [
   recipe("r26", "凉拌黄瓜", "素菜", ["lunch", "dinner"], ["黄瓜", "蒜", "醋"], 10),
   recipe("r27", "莲藕排骨汤", "汤", ["lunch", "dinner"], ["莲藕", "排骨", "姜"], 70, "中等"),
   recipe("r28", "肉末蒸茄子", "荤菜", ["lunch", "dinner"], ["茄子", "猪肉", "蒜"], 28),
+  recipe("r29", "鱿鱼", "荤菜", ["lunch", "dinner"], ["鱿鱼", "姜", "蒜"], 25),
+  recipe("r30", "红烧鱼", "荤菜", ["lunch", "dinner"], ["鱼", "姜", "蒜"], 35),
+  recipe("r31", "剁椒鱼头", "荤菜", ["lunch", "dinner"], ["鱼头", "剁椒", "姜"], 40, "中等"),
+  recipe("r32", "香煎带鱼", "荤菜", ["lunch", "dinner"], ["带鱼", "姜"], 30),
+  recipe("r33", "芹菜酸萝卜炒毛肚", "荤菜", ["lunch", "dinner"], ["毛肚", "芹菜", "酸萝卜", "辣椒"], 25),
+  recipe("r34", "红烧冬瓜", "素菜", ["lunch", "dinner"], ["冬瓜", "葱", "蒜"], 25),
+  recipe("r35", "老南瓜", "素菜", ["lunch", "dinner"], ["老南瓜"], 25),
+  recipe("r36", "嫩南瓜", "素菜", ["lunch", "dinner"], ["嫩南瓜", "蒜"], 15),
+  recipe("r37", "煎豆腐", "素菜", ["lunch", "dinner"], ["豆腐", "葱"], 20),
+  recipe("r38", "芹菜香干", "素菜", ["lunch", "dinner"], ["芹菜", "香干", "辣椒"], 15),
+  recipe("r39", "紫苏黄瓜", "素菜", ["lunch", "dinner"], ["紫苏", "黄瓜", "蒜"], 15),
+  recipe("r40", "煎辣椒", "素菜", ["lunch", "dinner"], ["辣椒", "蒜"], 15),
+  recipe("r41", "手撕包菜", "素菜", ["lunch", "dinner"], ["包菜", "蒜"], 15),
+  recipe("r42", "醋蒸鸡", "荤菜", ["lunch", "dinner"], ["鸡肉", "醋", "姜"], 45, "中等"),
+  recipe("r43", "盐焗鸡", "荤菜", ["lunch", "dinner"], ["鸡肉", "盐", "姜"], 60, "中等"),
+  recipe("r44", "小炒鸡", "荤菜", ["lunch", "dinner"], ["鸡肉", "辣椒", "姜"], 30),
+  recipe("r45", "鸡汤", "汤", ["lunch", "dinner"], ["鸡肉", "姜"], 70, "中等"),
+  recipe("r46", "蛋", "荤菜", ["lunch", "dinner"], ["鸡蛋"], 10),
+  recipe("r47", "口蘑西蓝花", "素菜", ["lunch", "dinner"], ["口蘑", "西蓝花", "蒜"], 18),
+  recipe("r48", "花菜", "素菜", ["lunch", "dinner"], ["花菜", "蒜"], 15),
+  recipe("r49", "清炒西蓝花", "素菜", ["lunch", "dinner"], ["西蓝花", "蒜"], 15),
+  recipe("r50", "黄瓜火腿肠", "荤菜", ["lunch", "dinner"], ["黄瓜", "火腿肠"], 15),
+  recipe("r51", "紫苏煎黄瓜", "素菜", ["lunch", "dinner"], ["紫苏", "黄瓜", "蒜"], 18),
+  recipe("r52", "擂辣椒豆角", "素菜", ["lunch", "dinner"], ["辣椒", "豆角", "蒜"], 20),
+  recipe("r53", "土豆丝", "素菜", ["lunch", "dinner"], ["土豆", "辣椒"], 15),
+  recipe("r54", "擂辣椒土豆片", "素菜", ["lunch", "dinner"], ["辣椒", "土豆", "蒜"], 20),
+  recipe("r55", "茄子肉沫", "荤菜", ["lunch", "dinner"], ["茄子", "猪肉", "蒜"], 25),
+  recipe("r56", "油豆腐肉沫", "荤菜", ["lunch", "dinner"], ["油豆腐", "猪肉", "蒜"], 25),
+  recipe("r57", "姜辣鸡爪", "荤菜", ["lunch", "dinner"], ["鸡爪", "姜", "辣椒"], 50, "中等"),
+  recipe("r58", "虎皮凤爪", "荤菜", ["lunch", "dinner"], ["鸡爪", "辣椒"], 60, "中等"),
+  recipe("r59", "鸡翅", "荤菜", ["lunch", "dinner"], ["鸡翅", "姜"], 35),
+  recipe("r60", "紫苏油爆虾", "荤菜", ["lunch", "dinner"], ["虾", "紫苏", "蒜"], 25),
+  recipe("r61", "白灼虾", "荤菜", ["lunch", "dinner"], ["虾", "姜"], 15),
+  recipe("r62", "小龙虾", "荤菜", ["lunch", "dinner"], ["小龙虾", "辣椒", "蒜"], 45, "中等"),
+  recipe("r63", "罗氏虾", "荤菜", ["lunch", "dinner"], ["罗氏虾", "姜", "蒜"], 25),
+  recipe("r64", "辣椒炒肉", "荤菜", ["lunch", "dinner"], ["辣椒", "猪肉", "蒜"], 20),
+  recipe("r65", "蒜苗炒肉", "荤菜", ["lunch", "dinner"], ["蒜苗", "猪肉"], 20),
+  recipe("r66", "茭白炒肉", "荤菜", ["lunch", "dinner"], ["茭白", "猪肉", "辣椒"], 20),
+  recipe("r67", "胡萝卜炒肉", "荤菜", ["lunch", "dinner"], ["胡萝卜", "猪肉"], 20),
+  recipe("r68", "泡椒牛肉", "荤菜", ["lunch", "dinner"], ["泡椒", "牛肉", "姜"], 25),
+  recipe("r69", "土豆排骨", "荤菜", ["lunch", "dinner"], ["土豆", "排骨", "姜"], 55, "中等"),
+  recipe("r70", "红烧排骨", "荤菜", ["lunch", "dinner"], ["排骨", "姜", "糖"], 55, "中等"),
+  recipe("r71", "红烧猪蹄", "荤菜", ["lunch", "dinner"], ["猪蹄", "姜", "糖"], 80, "复杂"),
+  recipe("r72", "红烧牛排骨", "荤菜", ["lunch", "dinner"], ["牛排骨", "姜", "糖"], 80, "复杂"),
 ];
+
+export function getMissingSeedRecipes(existingRecipes = []) {
+  const existingIds = new Set(existingRecipes.map((item) => item.id).filter(Boolean));
+  const existingNames = new Set(existingRecipes.map((item) => item.name?.trim()).filter(Boolean));
+  return SEED_RECIPES.filter((item) => !existingIds.has(item.id) && !existingNames.has(item.name));
+}

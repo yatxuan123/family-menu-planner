@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { planWeek } from "../src/domain/planner.js";
 import { buildShoppingItems } from "../src/domain/shopping.js";
 import { appendDish, normalizeMealEntry, removeDish } from "../src/domain/meals.js";
+import * as seedData from "../src/data/seed-recipes.js";
 
 const recipes = [
   { id: "b1", name: "粥", category: "主食", meals: ["breakfast"], minutes: 10, ingredients: [{ name: "米", category: "主食" }] },
@@ -29,5 +30,31 @@ assert.equal(planned["0-dinner"].dishes.length, 3, "晚餐应补齐三道菜");
 
 const shopping = buildShoppingItems({ week: { entries: { a: twoDishes } }, recipes });
 assert.deepEqual(new Set(shopping.map((item) => item.name)), new Set(["猪肉", "青菜"]), "采购清单应汇总同餐全部菜品");
+
+const requestedRecipeNames = [
+  "鱿鱼", "清蒸鱼", "红烧鱼", "剁椒鱼头", "香煎带鱼", "芹菜酸萝卜炒毛肚",
+  "红烧冬瓜", "老南瓜", "嫩南瓜", "煎豆腐", "芹菜香干", "紫苏黄瓜", "煎辣椒", "手撕包菜",
+  "醋蒸鸡", "盐焗鸡", "小炒鸡", "鸡汤", "蛋",
+  "口蘑西蓝花", "花菜", "清炒西蓝花", "黄瓜火腿肠", "紫苏煎黄瓜",
+  "擂辣椒豆角", "土豆丝", "擂辣椒土豆片", "茄子肉沫", "油豆腐肉沫",
+  "姜辣鸡爪", "虎皮凤爪", "鸡翅",
+  "紫苏油爆虾", "白灼虾", "小龙虾", "罗氏虾",
+  "辣椒炒肉", "蒜苗炒肉", "茭白炒肉", "胡萝卜炒肉", "泡椒牛肉",
+  "土豆排骨", "红烧排骨", "红烧猪蹄", "红烧牛排骨",
+];
+const seedNames = seedData.SEED_RECIPES.map((recipe) => recipe.name);
+assert.deepEqual(requestedRecipeNames.filter((name) => !seedNames.includes(name)), [], "用户提供的菜谱应全部加入内置菜谱");
+assert.equal(new Set(seedNames).size, seedNames.length, "内置菜谱名称不应重复");
+assert.equal(seedNames.filter((name) => name === "清蒸鱼").length, 1, "已有清蒸鱼不应重复添加");
+for (const name of requestedRecipeNames) {
+  const recipe = seedData.SEED_RECIPES.find((item) => item.name === name);
+  assert.deepEqual(recipe?.meals, ["lunch", "dinner"], `${name}应适用于午餐和晚餐`);
+}
+assert.equal(typeof seedData.getMissingSeedRecipes, "function", "应提供只补充缺失内置菜谱的迁移函数");
+if (seedData.getMissingSeedRecipes) {
+  const missing = seedData.getMissingSeedRecipes([{ id: "custom-fish", name: "清蒸鱼" }]);
+  assert.equal(missing.some((item) => item.name === "清蒸鱼"), false, "同名已有菜谱不应被迁移重复添加");
+  assert.equal(missing.some((item) => item.name === "鱿鱼"), true, "缺失的内置菜谱应被迁移添加");
+}
 
 console.log("PASS 多菜餐次领域测试");
