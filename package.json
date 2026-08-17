@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node tests/domain.test.mjs && node tests/mobile-ui.test.mjs"
+    "test": "node tests/domain.test.mjs && node tests/storage-remote.test.mjs && node tests/mobile-ui.test.mjs"
   },
   "devDependencies": {
     "vite": "^7.1.1"

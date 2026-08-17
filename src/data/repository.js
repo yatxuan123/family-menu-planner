@@ -1,4 +1,4 @@
-import { openDatabase, requestToPromise } from "./db.js";
+import { loadLocalSnapshot, saveLocalSnapshot, validateSnapshot } from "./storage.js";
 import { getMissingSeedRecipes, SEED_DATA_VERSION } from "./seed-recipes.js";
 
 const now = () => new Date().toISOString();
@@ -41,54 +41,47 @@ export function createEmptyWeek(date = new Date()) {
   };
 }
 
-async function withStore(storeName, mode, callback) {
-  const db = await openDatabase();
-  const transaction = db.transaction(storeName, mode);
-  const store = transaction.objectStore(storeName);
-  const done = new Promise((resolve, reject) => {
-    transaction.oncomplete = resolve;
-    transaction.onerror = () => reject(transaction.error || new Error("数据库事务失败"));
-    transaction.onabort = () => reject(transaction.error || new Error("数据库事务已中止"));
-  });
-  const result = await callback(store);
-  await done;
-  db.close();
-  return result;
+function getAll(collection) {
+  return loadLocalSnapshot()[collection];
 }
 
-async function getAll(storeName) {
-  return withStore(storeName, "readonly", (store) => requestToPromise(store.getAll()));
+function getOne(collection, key) {
+  return getAll(collection).find((item) => item.id === key);
 }
 
-async function getOne(storeName, key) {
-  return withStore(storeName, "readonly", (store) => requestToPromise(store.get(key)));
+function put(collection, value) {
+  const snapshot = loadLocalSnapshot();
+  const items = snapshot[collection];
+  const index = items.findIndex((item) => item.id === value.id);
+  if (index === -1) items.push(value);
+  else items[index] = value;
+  saveLocalSnapshot(snapshot);
+  return value;
 }
 
-async function put(storeName, value) {
-  return withStore(storeName, "readwrite", (store) => requestToPromise(store.put(value)));
-}
-
-async function remove(storeName, key) {
-  return withStore(storeName, "readwrite", (store) => requestToPromise(store.delete(key)));
+function remove(collection, key) {
+  const snapshot = loadLocalSnapshot();
+  snapshot[collection] = snapshot[collection].filter((item) => item.id !== key);
+  saveLocalSnapshot(snapshot);
 }
 
 export async function ensureInitialized() {
-  const recipes = await getAll("recipes");
-  const seedVersion = await getOne("settings", "seed-recipes-version");
+  const recipes = getAll("recipes");
+  const seedVersion = getOne("settings", "seed-recipes-version");
   if (!seedVersion || seedVersion.version < SEED_DATA_VERSION) {
-    for (const item of getMissingSeedRecipes(recipes)) await put("recipes", item);
-    await put("settings", { id: "seed-recipes-version", version: SEED_DATA_VERSION, updatedAt: now() });
+    for (const item of getMissingSeedRecipes(recipes)) put("recipes", item);
+    put("settings", { id: "seed-recipes-version", version: SEED_DATA_VERSION, updatedAt: now() });
   }
   const currentId = `week-${getWeekId()}`;
-  if (!(await getOne("weeks", currentId))) await put("weeks", createEmptyWeek());
-  if (!(await getOne("shopping", currentId))) await put("shopping", { id: currentId, weekId: currentId, items: [], updatedAt: now() });
+  if (!getOne("weeks", currentId)) put("weeks", createEmptyWeek());
+  if (!getOne("shopping", currentId)) put("shopping", { id: currentId, weekId: currentId, items: [], updatedAt: now() });
 }
 
 export const repository = {
   listRecipes: async (filters = {}) => {
-    let items = await getAll("recipes");
+    let items = getAll("recipes");
     const query = (filters.query || "").trim().toLowerCase();
-    if (query) items = items.filter((item) => `${item.name} ${item.ingredients.map((i) => i.name).join(" ")}`.toLowerCase().includes(query));
+    if (query) items = items.filter((item) => `${item.name} ${item.ingredients.map((ingredient) => ingredient.name).join(" ")}`.toLowerCase().includes(query));
     if (filters.category && filters.category !== "全部") items = items.filter((item) => item.category === filters.category);
     if (filters.meal) items = items.filter((item) => item.meals.includes(filters.meal));
     return items.sort((a, b) => a.name.localeCompare(b.name, "zh-CN"));
@@ -99,17 +92,11 @@ export const repository = {
   getCurrentWeek: async () => getOne("weeks", `week-${getWeekId()}`),
   saveWeek: async (week) => put("weeks", { ...week, updatedAt: now() }),
   archiveWeek: async (week) => put("weeks", { ...week, status: "archived", updatedAt: now(), archivedAt: now() }),
-  listArchivedWeeks: async () => (await getAll("weeks")).filter((week) => week.status === "archived").sort((a, b) => b.startDate.localeCompare(a.startDate)),
+  listArchivedWeeks: async () => getAll("weeks").filter((week) => week.status === "archived").sort((a, b) => b.startDate.localeCompare(a.startDate)),
   getShopping: async (weekId) => getOne("shopping", weekId),
   saveShopping: async (list) => put("shopping", { ...list, updatedAt: now() }),
-  exportAll: async () => ({ version: 1, exportedAt: now(), recipes: await getAll("recipes"), weeks: await getAll("weeks"), shopping: await getAll("shopping"), settings: await getAll("settings") }),
-  replaceAll: async (snapshot) => {
-    if (!snapshot || snapshot.version !== 1 || !Array.isArray(snapshot.recipes) || !Array.isArray(snapshot.weeks) || !Array.isArray(snapshot.shopping)) throw new Error("备份文件格式不受支持或已损坏。");
-    for (const item of snapshot.recipes) await put("recipes", item);
-    for (const item of snapshot.weeks) await put("weeks", item);
-    for (const item of snapshot.shopping) await put("shopping", item);
-    for (const item of snapshot.settings || []) await put("settings", item);
-  },
+  exportAll: async () => structuredClone(loadLocalSnapshot()),
+  replaceAll: async (snapshot) => saveLocalSnapshot(structuredClone(validateSnapshot(snapshot))),
 };
 
 export { id };

@@ -1,5 +1,7 @@
 import { ensureInitialized, repository, createEmptyWeek, id } from "./data/repository.js";
 import { downloadBackup, restoreBackup } from "./data/backup.js";
+import { loadBundledSnapshot, loadRemoteSnapshot, saveRemoteSnapshot } from "./data/remote.js";
+import { shouldApplyBundledSnapshot } from "./data/storage.js";
 import { planWeek } from "./domain/planner.js";
 import { buildShoppingItems } from "./domain/shopping.js";
 import { appendDish, normalizeWeek, removeDish } from "./domain/meals.js";
@@ -19,6 +21,9 @@ const NAV = [
   ["settings", "数据"],
 ];
 
+const GITHUB_TOKEN_KEY = "family-menu-github-token";
+const GITHUB_SHA_KEY = "family-menu-github-sha";
+
 const state = {
   view: "week",
   recipes: [],
@@ -35,25 +40,41 @@ const state = {
   toast: null,
   undo: null,
   confirmAction: null,
+  pendingRemoteSnapshot: null,
 };
 
 const app = document.querySelector("#app");
 
-async function loadState() {
+async function loadState({ refreshFromBundled = false } = {}) {
+  const localSnapshot = await repository.exportAll();
+  let bundledError = null;
+  if (refreshFromBundled) {
+    try {
+      const bundledSnapshot = await loadBundledSnapshot();
+      if (shouldApplyBundledSnapshot(localSnapshot, bundledSnapshot)) await repository.replaceAll(bundledSnapshot);
+    } catch (error) {
+      bundledError = error;
+    }
+  }
   await ensureInitialized();
   state.recipes = await repository.listRecipes();
   state.week = normalizeWeek(await repository.getCurrentWeek() || createEmptyWeek());
   state.history = (await repository.listArchivedWeeks()).map(normalizeWeek);
   state.shopping = await repository.getShopping(state.week.id) || { id: state.week.id, weekId: state.week.id, items: [] };
+  return bundledError;
 }
 
 function navigation(mobile = false) {
-  const items = NAV.filter(([key]) => !mobile || key !== "settings");
-  return `<nav class="${mobile ? "mobile-nav" : "app-nav"}" aria-label="主导航">${items.map(([key, label]) => `<button class="nav-button ${state.view === key ? "active" : ""}" data-view="${key}">${label}</button>`).join("")}</nav>`;
+  return `<nav class="${mobile ? "mobile-nav" : "app-nav"}" aria-label="主导航">${NAV.map(([key, label]) => `<button class="nav-button ${state.view === key ? "active" : ""}" data-view="${key}">${label}</button>`).join("")}</nav>`;
 }
 
 function renderSettings() {
-  return `<section class="view-shell"><header class="view-header"><div><span class="eyebrow">本地数据版本 1</span><h1>数据与备份</h1><p>所有数据仅保存在当前浏览器，请定期导出备份。</p></div></header><div class="settings-list"><div class="settings-row"><div><strong>导出完整备份</strong><p>下载菜谱、菜单历史和采购清单的 JSON 文件。</p></div><button class="button primary" data-action="export">导出备份</button></div><div class="settings-row"><div><strong>导入并恢复</strong><p>校验通过后导入数据；现有同 ID 数据会被更新。</p></div><label class="button secondary">选择文件<input hidden type="file" accept="application/json" data-input="import"></label></div><div class="settings-row"><div><strong>数据概览</strong><p>${state.recipes.length} 道菜谱，${state.history.length} 周历史菜单，当前周 ${Object.keys(state.week.entries).length}/21 餐已安排。</p></div></div></div></section>`;
+  return `<section class="view-shell"><header class="view-header"><div><span class="eyebrow">本地数据版本 1</span><h1>数据与备份</h1><p>日常修改会立即保存在当前浏览器，可按需与 GitHub 手动同步。</p></div></header><div class="settings-list">
+    <div class="settings-row settings-row-stack"><div><strong>GitHub 手动同步</strong><p>Token 需要此仓库的 Contents: Read and write 权限，仅保存在当前浏览器会话。</p></div><label class="token-field"><span>Fine-grained Token</span><input type="password" autocomplete="off" data-input="github-token" placeholder="github_pat_..."></label><div class="settings-sync-actions"><button class="button secondary" data-action="read-github">读取 GitHub</button><button class="button primary" data-action="save-github">保存 GitHub</button></div><p class="warning-text">这是公开仓库：JSON 内容和每次保存形成的 Git 历史都公开可见。</p></div>
+    <div class="settings-row"><div><strong>导出完整备份</strong><p>下载菜谱、菜单历史和采购清单的 JSON 文件。</p></div><button class="button primary" data-action="export">导出备份</button></div>
+    <div class="settings-row"><div><strong>导入并恢复</strong><p>校验通过后会用备份完整替换当前浏览器数据。</p></div><label class="button secondary">选择文件<input hidden type="file" accept="application/json" data-input="import"></label></div>
+    <div class="settings-row"><div><strong>数据概览</strong><p>${state.recipes.length} 道菜谱，${state.history.length} 周历史菜单，当前周 ${Object.keys(state.week.entries).length}/21 餐已安排。</p></div></div>
+  </div></section>`;
 }
 
 function renderView() {
@@ -69,6 +90,10 @@ function render() {
   app.innerHTML = `<div class="app-shell"><aside class="app-sidebar"><div class="brand"><span class="brand-mark">家</span><div><strong>家庭菜单</strong><small>一周三餐规划</small></div></div>${navigation()}<div class="sidebar-footer">数据保存在此浏览器<br>建议定期导出备份</div></aside><main class="app-main">${renderView()}</main>${navigation(true)}</div>${state.toast ? `<div class="toast ${state.toast.type || ""}">${state.toast.message}${state.undo ? ` <button class="text-button" data-action="undo" style="color:white">撤销</button>` : ""}</div>` : ""}${state.confirmAction ? `<div class="modal-backdrop"><div class="modal confirm-modal"><span class="eyebrow">请确认</span><h2>${state.confirmAction.title}</h2><p>${state.confirmAction.message}</p><div class="modal-actions"><span></span><span></span><button class="button ghost" data-action="cancel-confirm">取消</button><button class="button primary" data-action="${state.confirmAction.confirmAction}">确认</button></div></div></div>` : ""}`;
   const editor = document.querySelector("#editor-panel");
   if (editor) editor.innerHTML = renderEditorPanel(state);
+  const tokenInput = document.querySelector('[data-input="github-token"]');
+  if (tokenInput) {
+    try { tokenInput.value = sessionStorage.getItem(GITHUB_TOKEN_KEY) || ""; } catch { tokenInput.value = ""; }
+  }
 }
 
 function notify(message, type = "") {
@@ -187,7 +212,7 @@ app.addEventListener("click", async (event) => {
       state.confirmAction = { title: "清空本周菜单？", message: "当前周的 21 个餐格将被清空，菜谱和历史记录不会删除。", confirmAction: "confirm-clear-week" };
       render();
     }
-    if (action === "cancel-confirm") { state.confirmAction = null; render(); }
+    if (action === "cancel-confirm") { state.confirmAction = null; state.pendingRemoteSnapshot = null; render(); }
     if (action?.startsWith("confirm-delete-recipe:")) {
       await repository.deleteRecipe(action.split(":")[1]); state.recipes = await repository.listRecipes(); state.recipeFormOpen = false; state.editingRecipe = null; state.confirmAction = null; render(); notify("菜谱已删除");
     }
@@ -208,6 +233,30 @@ app.addEventListener("click", async (event) => {
     }
     if (action === "refresh-shopping") { await refreshShopping(); notify("采购清单已从本周菜单更新"); }
     if (action === "clear-checked") { state.shopping.items = state.shopping.items.filter((item) => !item.checked); await repository.saveShopping(state.shopping); notify("已清理购买完成的项目"); }
+    if (action === "read-github") {
+      state.pendingRemoteSnapshot = await loadRemoteSnapshot();
+      state.confirmAction = { title: "用 GitHub 数据替换本地数据？", message: "当前浏览器中的菜谱、菜单、历史、采购清单和设置都会被远程快照替换。", confirmAction: "confirm-read-github" };
+      render();
+    }
+    if (action === "confirm-read-github") {
+      await repository.replaceAll(state.pendingRemoteSnapshot.snapshot);
+      try { sessionStorage.setItem(GITHUB_SHA_KEY, state.pendingRemoteSnapshot.sha); } catch (error) { throw new Error(`保存远程版本基准失败：${error.message}`); }
+      state.pendingRemoteSnapshot = null;
+      state.confirmAction = null;
+      await loadState();
+      notify("已读取 GitHub 并替换本地数据");
+    }
+    if (action === "save-github") {
+      let token = "";
+      let expectedSha = "";
+      try {
+        token = sessionStorage.getItem(GITHUB_TOKEN_KEY) || "";
+        expectedSha = sessionStorage.getItem(GITHUB_SHA_KEY) || "";
+      } catch (error) { throw new Error(`读取会话同步信息失败：${error.message}`); }
+      const result = await saveRemoteSnapshot(await repository.exportAll(), token, expectedSha);
+      if (result.fileSha) sessionStorage.setItem(GITHUB_SHA_KEY, result.fileSha);
+      notify(`已保存到 GitHub${result.commitSha ? `，提交 ${result.commitSha.slice(0, 7)}` : ""}`);
+    }
     if (action === "export") { await downloadBackup(); notify("备份文件已生成"); }
   } catch (error) { notify(error.message || "操作失败", "error"); }
 });
@@ -216,6 +265,9 @@ app.addEventListener("input", (event) => {
   const input = event.target;
   if (input.dataset.input === "recipe-query") { state.recipeQuery = input.value; const editor = document.querySelector("#editor-panel"); if (editor) editor.innerHTML = renderEditorPanel(state); }
   if (input.dataset.input === "library-query") { state.libraryQuery = input.value; render(); document.querySelector('[data-input="library-query"]')?.focus(); }
+  if (input.dataset.input === "github-token") {
+    try { sessionStorage.setItem(GITHUB_TOKEN_KEY, input.value.trim()); } catch (error) { notify(`保存会话 Token 失败：${error.message}`, "error"); }
+  }
 });
 
 app.addEventListener("change", async (event) => {
@@ -250,4 +302,7 @@ app.addEventListener("drop", async (event) => {
   await chooseRecipe(event.dataTransfer.getData("text/recipe-id"));
 });
 
-loadState().then(render).catch((error) => { app.innerHTML = `<div class="loading-screen">${error.message}</div>`; });
+loadState({ refreshFromBundled: true }).then((bundledError) => {
+  render();
+  if (bundledError) notify("同项目数据读取失败，已继续使用浏览器本地数据", "error");
+}).catch((error) => { app.innerHTML = `<div class="loading-screen">${error.message}</div>`; });
