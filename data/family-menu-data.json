@@ -1,7 +1,2558 @@
 {
   "version": 1,
-  "recipes": [],
-  "weeks": [],
-  "shopping": [],
-  "settings": []
+  "recipes": [
+    {
+      "id": "r01",
+      "name": "小米粥",
+      "category": "主食",
+      "meals": [
+        "breakfast"
+      ],
+      "ingredients": [
+        {
+          "name": "小米",
+          "category": "主食"
+        }
+      ],
+      "flavor": [],
+      "minutes": 30,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成小米粥。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r02",
+      "name": "鸡蛋饼",
+      "category": "早餐",
+      "meals": [
+        "breakfast"
+      ],
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "category": "肉蛋"
+        },
+        {
+          "name": "面粉",
+          "category": "主食"
+        },
+        {
+          "name": "葱",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成鸡蛋饼。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r03",
+      "name": "牛奶燕麦",
+      "category": "早餐",
+      "meals": [
+        "breakfast"
+      ],
+      "ingredients": [
+        {
+          "name": "牛奶",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "燕麦",
+          "category": "主食"
+        }
+      ],
+      "flavor": [],
+      "minutes": 8,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成牛奶燕麦。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r04",
+      "name": "番茄鸡蛋面",
+      "category": "主食",
+      "meals": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "面条",
+          "category": "主食"
+        },
+        {
+          "name": "番茄",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "鸡蛋",
+          "category": "肉蛋"
+        }
+      ],
+      "flavor": [],
+      "minutes": 20,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成番茄鸡蛋面。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r05",
+      "name": "蔬菜三明治",
+      "category": "早餐",
+      "meals": [
+        "breakfast"
+      ],
+      "ingredients": [
+        {
+          "name": "面包",
+          "category": "主食"
+        },
+        {
+          "name": "生菜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "番茄",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "鸡蛋",
+          "category": "肉蛋"
+        }
+      ],
+      "flavor": [],
+      "minutes": 10,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成蔬菜三明治。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r06",
+      "name": "南瓜粥",
+      "category": "主食",
+      "meals": [
+        "breakfast"
+      ],
+      "ingredients": [
+        {
+          "name": "南瓜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "大米",
+          "category": "主食"
+        }
+      ],
+      "flavor": [],
+      "minutes": 35,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成南瓜粥。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r07",
+      "name": "番茄炒蛋",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "番茄",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "鸡蛋",
+          "category": "肉蛋"
+        },
+        {
+          "name": "葱",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成番茄炒蛋。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r08",
+      "name": "青椒肉丝",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "青椒",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "猪肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成青椒肉丝。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r09",
+      "name": "土豆烧牛肉",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "土豆",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "牛肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 55,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成土豆烧牛肉。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r10",
+      "name": "清蒸鱼",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鱼",
+          "category": "水产"
+        },
+        {
+          "name": "葱",
+          "category": "调味料"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 30,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成清蒸鱼。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r11",
+      "name": "香菇青菜",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "香菇",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "青菜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成香菇青菜。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r12",
+      "name": "蒜蓉西兰花",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "西兰花",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成蒜蓉西兰花。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r13",
+      "name": "冬瓜排骨汤",
+      "category": "汤",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "冬瓜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "排骨",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 60,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成冬瓜排骨汤。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r14",
+      "name": "紫菜蛋花汤",
+      "category": "汤",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "紫菜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "鸡蛋",
+          "category": "肉蛋"
+        },
+        {
+          "name": "葱",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 12,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成紫菜蛋花汤。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r15",
+      "name": "玉米胡萝卜汤",
+      "category": "汤",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "玉米",
+          "category": "主食"
+        },
+        {
+          "name": "胡萝卜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "排骨",
+          "category": "肉蛋"
+        }
+      ],
+      "flavor": [],
+      "minutes": 55,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成玉米胡萝卜汤。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r16",
+      "name": "宫保鸡丁",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鸡肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "花生",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "黄瓜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "葱",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 30,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成宫保鸡丁。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r17",
+      "name": "木须肉",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "猪肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "鸡蛋",
+          "category": "肉蛋"
+        },
+        {
+          "name": "木耳",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "黄瓜",
+          "category": "蔬菜及其他"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成木须肉。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r18",
+      "name": "红烧豆腐",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "葱",
+          "category": "调味料"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 20,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成红烧豆腐。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r19",
+      "name": "酸辣土豆丝",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "土豆",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "青椒",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "醋",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 18,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成酸辣土豆丝。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r20",
+      "name": "扬州炒饭",
+      "category": "主食",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "大米",
+          "category": "主食"
+        },
+        {
+          "name": "鸡蛋",
+          "category": "肉蛋"
+        },
+        {
+          "name": "胡萝卜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "火腿",
+          "category": "肉蛋"
+        }
+      ],
+      "flavor": [],
+      "minutes": 20,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成扬州炒饭。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r21",
+      "name": "鸡丝凉面",
+      "category": "主食",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "面条",
+          "category": "主食"
+        },
+        {
+          "name": "鸡肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "黄瓜",
+          "category": "蔬菜及其他"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成鸡丝凉面。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r22",
+      "name": "白菜猪肉水饺",
+      "category": "主食",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "面粉",
+          "category": "主食"
+        },
+        {
+          "name": "白菜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "猪肉",
+          "category": "肉蛋"
+        }
+      ],
+      "flavor": [],
+      "minutes": 60,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成白菜猪肉水饺。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r23",
+      "name": "咖喱鸡肉饭",
+      "category": "主食",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "大米",
+          "category": "主食"
+        },
+        {
+          "name": "鸡肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "土豆",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "胡萝卜",
+          "category": "蔬菜及其他"
+        }
+      ],
+      "flavor": [],
+      "minutes": 40,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成咖喱鸡肉饭。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r24",
+      "name": "家常馄饨",
+      "category": "主食",
+      "meals": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "馄饨皮",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "猪肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "紫菜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "葱",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 35,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成家常馄饨。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r25",
+      "name": "虾仁蒸蛋",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "虾",
+          "category": "水产"
+        },
+        {
+          "name": "鸡蛋",
+          "category": "肉蛋"
+        },
+        {
+          "name": "葱",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 22,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成虾仁蒸蛋。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r26",
+      "name": "凉拌黄瓜",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "黄瓜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        },
+        {
+          "name": "醋",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 10,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成凉拌黄瓜。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r27",
+      "name": "莲藕排骨汤",
+      "category": "汤",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "莲藕",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "排骨",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 70,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成莲藕排骨汤。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r28",
+      "name": "肉末蒸茄子",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "茄子",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "猪肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 28,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成肉末蒸茄子。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r29",
+      "name": "鱿鱼",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鱿鱼",
+          "category": "水产"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成鱿鱼。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r30",
+      "name": "红烧鱼",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鱼",
+          "category": "水产"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 35,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成红烧鱼。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r31",
+      "name": "剁椒鱼头",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鱼头",
+          "category": "水产"
+        },
+        {
+          "name": "剁椒",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 40,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成剁椒鱼头。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r32",
+      "name": "香煎带鱼",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "带鱼",
+          "category": "水产"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 30,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成香煎带鱼。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r33",
+      "name": "芹菜酸萝卜炒毛肚",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "毛肚",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "芹菜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "酸萝卜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成芹菜酸萝卜炒毛肚。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r34",
+      "name": "红烧冬瓜",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "冬瓜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "葱",
+          "category": "调味料"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成红烧冬瓜。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r35",
+      "name": "老南瓜",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "老南瓜",
+          "category": "蔬菜及其他"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成老南瓜。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r36",
+      "name": "嫩南瓜",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "嫩南瓜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成嫩南瓜。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r37",
+      "name": "煎豆腐",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "葱",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 20,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成煎豆腐。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r38",
+      "name": "芹菜香干",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "芹菜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "香干",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成芹菜香干。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r39",
+      "name": "紫苏黄瓜",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "紫苏",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "黄瓜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成紫苏黄瓜。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r40",
+      "name": "煎辣椒",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成煎辣椒。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r41",
+      "name": "手撕包菜",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "包菜",
+          "category": "主食"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成手撕包菜。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r42",
+      "name": "醋蒸鸡",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鸡肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "醋",
+          "category": "调味料"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 45,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成醋蒸鸡。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r43",
+      "name": "盐焗鸡",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鸡肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "盐",
+          "category": "调味料"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 60,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成盐焗鸡。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r44",
+      "name": "小炒鸡",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鸡肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 30,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成小炒鸡。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r45",
+      "name": "鸡汤",
+      "category": "汤",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鸡肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 70,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成鸡汤。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r46",
+      "name": "蛋",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "category": "肉蛋"
+        }
+      ],
+      "flavor": [],
+      "minutes": 10,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成蛋。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r47",
+      "name": "口蘑西蓝花",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "口蘑",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "西蓝花",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 18,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成口蘑西蓝花。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r48",
+      "name": "花菜",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "花菜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成花菜。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r49",
+      "name": "清炒西蓝花",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "西蓝花",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成清炒西蓝花。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r50",
+      "name": "黄瓜火腿肠",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "黄瓜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "火腿肠",
+          "category": "肉蛋"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成黄瓜火腿肠。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r51",
+      "name": "紫苏煎黄瓜",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "紫苏",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "黄瓜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 18,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成紫苏煎黄瓜。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r52",
+      "name": "擂辣椒豆角",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "豆角",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 20,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成擂辣椒豆角。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r53",
+      "name": "土豆丝",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "土豆",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成土豆丝。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r54",
+      "name": "擂辣椒土豆片",
+      "category": "素菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "土豆",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 20,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成擂辣椒土豆片。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r55",
+      "name": "茄子肉沫",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "茄子",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "猪肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成茄子肉沫。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r56",
+      "name": "油豆腐肉沫",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "油豆腐",
+          "category": "调味料"
+        },
+        {
+          "name": "猪肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成油豆腐肉沫。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r57",
+      "name": "姜辣鸡爪",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鸡爪",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        },
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        }
+      ],
+      "flavor": [],
+      "minutes": 50,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成姜辣鸡爪。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r58",
+      "name": "虎皮凤爪",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鸡爪",
+          "category": "肉蛋"
+        },
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        }
+      ],
+      "flavor": [],
+      "minutes": 60,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成虎皮凤爪。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r59",
+      "name": "鸡翅",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "鸡翅",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 35,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成鸡翅。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r60",
+      "name": "紫苏油爆虾",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "虾",
+          "category": "水产"
+        },
+        {
+          "name": "紫苏",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成紫苏油爆虾。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r61",
+      "name": "白灼虾",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "虾",
+          "category": "水产"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 15,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成白灼虾。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r62",
+      "name": "小龙虾",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "小龙虾",
+          "category": "水产"
+        },
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 45,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成小龙虾。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r63",
+      "name": "罗氏虾",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "罗氏虾",
+          "category": "水产"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成罗氏虾。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r64",
+      "name": "辣椒炒肉",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "猪肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "蒜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 20,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成辣椒炒肉。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r65",
+      "name": "蒜苗炒肉",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "蒜苗",
+          "category": "调味料"
+        },
+        {
+          "name": "猪肉",
+          "category": "肉蛋"
+        }
+      ],
+      "flavor": [],
+      "minutes": 20,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成蒜苗炒肉。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r66",
+      "name": "茭白炒肉",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "茭白",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "猪肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "辣椒",
+          "category": "蔬菜及其他"
+        }
+      ],
+      "flavor": [],
+      "minutes": 20,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成茭白炒肉。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r67",
+      "name": "胡萝卜炒肉",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "胡萝卜",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "猪肉",
+          "category": "肉蛋"
+        }
+      ],
+      "flavor": [],
+      "minutes": 20,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成胡萝卜炒肉。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r68",
+      "name": "泡椒牛肉",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "泡椒",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "牛肉",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 25,
+      "difficulty": "简单",
+      "steps": "准备食材，按家常做法完成泡椒牛肉。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r69",
+      "name": "土豆排骨",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "土豆",
+          "category": "蔬菜及其他"
+        },
+        {
+          "name": "排骨",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 55,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成土豆排骨。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r70",
+      "name": "红烧排骨",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "排骨",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        },
+        {
+          "name": "糖",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 55,
+      "difficulty": "中等",
+      "steps": "准备食材，按家常做法完成红烧排骨。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r71",
+      "name": "红烧猪蹄",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "猪蹄",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        },
+        {
+          "name": "糖",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 80,
+      "difficulty": "复杂",
+      "steps": "准备食材，按家常做法完成红烧猪蹄。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "r72",
+      "name": "红烧牛排骨",
+      "category": "荤菜",
+      "meals": [
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "name": "牛排骨",
+          "category": "肉蛋"
+        },
+        {
+          "name": "姜",
+          "category": "调味料"
+        },
+        {
+          "name": "糖",
+          "category": "调味料"
+        }
+      ],
+      "flavor": [],
+      "minutes": 80,
+      "difficulty": "复杂",
+      "steps": "准备食材，按家常做法完成红烧牛排骨。",
+      "notes": "",
+      "favorite": false,
+      "createdAt": "2026-08-10T00:00:00.000Z",
+      "updatedAt": "2026-08-10T00:00:00.000Z"
+    }
+  ],
+  "weeks": [
+    {
+      "id": "week-2026-08-17",
+      "startDate": "2026-08-17",
+      "endDate": "2026-08-23",
+      "status": "current",
+      "entries": {
+        "0-breakfast": {
+          "dishes": [
+            {
+              "recipeId": "r06",
+              "name": "南瓜粥",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r05",
+              "name": "蔬菜三明治",
+              "source": "auto"
+            }
+          ]
+        },
+        "0-lunch": {
+          "dishes": [
+            {
+              "recipeId": "r66",
+              "name": "茭白炒肉",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r41",
+              "name": "手撕包菜",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r15",
+              "name": "玉米胡萝卜汤",
+              "source": "auto"
+            }
+          ]
+        },
+        "0-dinner": {
+          "dishes": [
+            {
+              "recipeId": "r50",
+              "name": "黄瓜火腿肠",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r37",
+              "name": "煎豆腐",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r21",
+              "name": "鸡丝凉面",
+              "source": "auto"
+            }
+          ]
+        },
+        "1-breakfast": {
+          "dishes": [
+            {
+              "recipeId": "r24",
+              "name": "家常馄饨",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r03",
+              "name": "牛奶燕麦",
+              "source": "auto"
+            }
+          ]
+        },
+        "1-lunch": {
+          "dishes": [
+            {
+              "recipeId": "r04",
+              "name": "番茄鸡蛋面",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r54",
+              "name": "擂辣椒土豆片",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r42",
+              "name": "醋蒸鸡",
+              "source": "auto"
+            }
+          ]
+        },
+        "1-dinner": {
+          "dishes": [
+            {
+              "recipeId": "r35",
+              "name": "老南瓜",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r65",
+              "name": "蒜苗炒肉",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r20",
+              "name": "扬州炒饭",
+              "source": "auto"
+            }
+          ]
+        },
+        "2-breakfast": {
+          "dishes": [
+            {
+              "recipeId": "r02",
+              "name": "鸡蛋饼",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r01",
+              "name": "小米粥",
+              "source": "auto"
+            }
+          ]
+        },
+        "2-lunch": {
+          "dishes": [
+            {
+              "recipeId": "r23",
+              "name": "咖喱鸡肉饭",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r08",
+              "name": "青椒肉丝",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r48",
+              "name": "花菜",
+              "source": "auto"
+            }
+          ]
+        },
+        "2-dinner": {
+          "dishes": [
+            {
+              "recipeId": "r33",
+              "name": "芹菜酸萝卜炒毛肚",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r26",
+              "name": "凉拌黄瓜",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r13",
+              "name": "冬瓜排骨汤",
+              "source": "auto"
+            }
+          ]
+        },
+        "3-breakfast": {
+          "dishes": [
+            {
+              "recipeId": "r05",
+              "name": "蔬菜三明治",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r24",
+              "name": "家常馄饨",
+              "source": "auto"
+            }
+          ]
+        },
+        "3-lunch": {
+          "dishes": [
+            {
+              "recipeId": "r19",
+              "name": "酸辣土豆丝",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r44",
+              "name": "小炒鸡",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r22",
+              "name": "白菜猪肉水饺",
+              "source": "auto"
+            }
+          ]
+        },
+        "3-dinner": {
+          "dishes": [
+            {
+              "recipeId": "r51",
+              "name": "紫苏煎黄瓜",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r61",
+              "name": "白灼虾",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r27",
+              "name": "莲藕排骨汤",
+              "source": "auto"
+            }
+          ]
+        },
+        "4-breakfast": {
+          "dishes": [
+            {
+              "recipeId": "r04",
+              "name": "番茄鸡蛋面",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r03",
+              "name": "牛奶燕麦",
+              "source": "auto"
+            }
+          ]
+        },
+        "4-lunch": {
+          "dishes": [
+            {
+              "recipeId": "r18",
+              "name": "红烧豆腐",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r67",
+              "name": "胡萝卜炒肉",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r45",
+              "name": "鸡汤",
+              "source": "auto"
+            }
+          ]
+        },
+        "4-dinner": {
+          "dishes": [
+            {
+              "recipeId": "r53",
+              "name": "土豆丝",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r60",
+              "name": "紫苏油爆虾",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r14",
+              "name": "紫菜蛋花汤",
+              "source": "auto"
+            }
+          ]
+        },
+        "5-breakfast": {
+          "dishes": [
+            {
+              "recipeId": "r02",
+              "name": "鸡蛋饼",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r06",
+              "name": "南瓜粥",
+              "source": "auto"
+            }
+          ]
+        },
+        "5-lunch": {
+          "dishes": [
+            {
+              "recipeId": "r64",
+              "name": "辣椒炒肉",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r36",
+              "name": "嫩南瓜",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r69",
+              "name": "土豆排骨",
+              "source": "auto"
+            }
+          ]
+        },
+        "5-dinner": {
+          "dishes": [
+            {
+              "recipeId": "r39",
+              "name": "紫苏黄瓜",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r46",
+              "name": "蛋",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r38",
+              "name": "芹菜香干",
+              "source": "auto"
+            }
+          ]
+        },
+        "6-breakfast": {
+          "dishes": [
+            {
+              "recipeId": "r01",
+              "name": "小米粥",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r05",
+              "name": "蔬菜三明治",
+              "source": "auto"
+            }
+          ]
+        },
+        "6-lunch": {
+          "dishes": [
+            {
+              "recipeId": "r34",
+              "name": "红烧冬瓜",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r59",
+              "name": "鸡翅",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r58",
+              "name": "虎皮凤爪",
+              "source": "auto"
+            }
+          ]
+        },
+        "6-dinner": {
+          "dishes": [
+            {
+              "recipeId": "r17",
+              "name": "木须肉",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r49",
+              "name": "清炒西蓝花",
+              "source": "auto"
+            },
+            {
+              "recipeId": "r68",
+              "name": "泡椒牛肉",
+              "source": "auto"
+            }
+          ]
+        }
+      },
+      "notes": {},
+      "createdAt": "2026-08-18T13:19:23.383Z",
+      "updatedAt": "2026-08-18T13:19:26.933Z"
+    }
+  ],
+  "shopping": [
+    {
+      "id": "week-2026-08-17",
+      "weekId": "week-2026-08-17",
+      "items": [],
+      "updatedAt": "2026-08-18T13:19:23.384Z"
+    }
+  ],
+  "settings": [
+    {
+      "id": "seed-recipes-version",
+      "version": 2,
+      "updatedAt": "2026-08-18T13:19:23.382Z"
+    }
+  ]
 }
