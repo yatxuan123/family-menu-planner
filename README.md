@@ -36,7 +36,7 @@ pnpm preview
 
 ## GitHub 手动同步
 
-启动时应用会先读取浏览器缓存，再请求同站点的 `data/family-menu-data.json`。读取成功后，同站点文件会覆盖浏览器缓存；读取失败时继续使用原有本地缓存。
+启动时应用会先读取浏览器缓存，再自动请求 GitHub raw 文件。远程数据有效且非空时会立即覆盖浏览器缓存并刷新当前界面；读取失败时继续使用原有本地缓存，并在“数据”页持续显示同步状态。
 
 “读取 GitHub”直接访问公开文件：
 
@@ -44,7 +44,7 @@ pnpm preview
 https://raw.githubusercontent.com/yatxuan123/family-menu-planner/main/data/family-menu-data.json
 ```
 
-读取并校验成功后，页面会要求确认，再用远程快照替换当前浏览器数据。读取过程只访问公开 raw 文件，并在浏览器本地按 Git Blob 规则计算 SHA，不消耗 GitHub API 的匿名请求额度。
+手动读取并校验成功后，页面会要求确认，再用远程快照替换当前浏览器数据并立即更新当前界面，不需要刷新页面。读取过程只访问公开 raw 文件，并在浏览器本地按 Git Blob 规则计算 SHA，不消耗 GitHub API 的匿名请求额度。
 
 “保存 GitHub”需要输入拥有仓库 `Contents: Read and write` 权限的 Fine-grained Token。Token 仅保存于当前浏览器会话的 `sessionStorage`，Key 为 `family-menu-github-token`，关闭浏览器后失效。首次保存前必须先点击“读取 GitHub”，应用会记录当时的文件 SHA；保存前再次检查远程 SHA，发现其他设备已更新时会拒绝覆盖并要求重新读取。校验通过后通过 GitHub Contents API PUT 更新文件并生成提交 `chore: 更新家庭菜单数据`。
 

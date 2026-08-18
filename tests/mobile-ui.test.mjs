@@ -15,6 +15,14 @@ assert.match(appSource, /data-action="save-github"/, "数据页应提供保存 G
 assert.match(appSource, /type="password"[^>]*data-input="github-token"/, "GitHub Token 应使用密码输入框");
 assert.match(appSource, /公开仓库[\s\S]*Git 历史/, "数据页应提示远程 JSON 和 Git 历史公开可见");
 assert.doesNotMatch(appSource, /key !== "settings"/, "移动端不应隐藏数据页入口");
+assert.match(appSource, /loadState\(\{\s*refreshFromRemote:\s*true\s*\}\)/, "页面首次加载应自动读取 GitHub raw 数据");
+assert.doesNotMatch(appSource, /loadState\(\{\s*refreshFromBundled:\s*true\s*\}\)/, "页面首次加载不应只读取 Pages 构建内的数据文件");
+assert.match(appSource, /async function applyRemoteSnapshot/, "自动读取和手动读取应复用统一的远程快照应用流程");
+assert.match(appSource, /class="sync-status[^>]*"/, "数据页应显示持久的同步状态提示");
+assert.match(appSource, /正在读取/, "读取期间应显示友好的进行中提示");
+assert.match(appSource, /正在保存/, "保存期间应显示友好的进行中提示");
+assert.match(styles, /\.sync-status\.success/, "同步成功提示应有明确的成功样式");
+assert.match(styles, /\.sync-status\.error/, "同步失败提示应有明确的错误样式");
 
 const editorHtml = renderEditorPanel({
   selectedSlot: "0-breakfast",
