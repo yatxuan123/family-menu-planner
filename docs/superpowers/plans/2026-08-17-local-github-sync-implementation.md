@@ -48,7 +48,7 @@
 
 - [ ] 编写 raw JSON 读取、SHA + PUT、UTF-8 Base64、HTTP 错误和 `409` 冲突的失败测试。
 - [ ] 运行目标测试，确认因远程模块不存在而失败。
-- [ ] 实现同站点加载、公开 raw 读取和 Contents API 保存。
+- [ ] 实现同站点加载、公开 raw 读取、本地 Git Blob SHA 计算和 Contents API 保存。
 - [ ] 运行目标测试和全量测试，确认通过。
 
 ### Task 3: 设置页同步交互与移动端入口

@@ -11,6 +11,7 @@ import {
 import {
   GITHUB_API_URL,
   RemoteConflictError,
+  computeGitBlobSha,
   loadRemoteSnapshot,
   saveRemoteSnapshot,
 } from "../src/data/remote.js";
@@ -65,26 +66,17 @@ assert.equal(shouldApplyBundledSnapshot(empty, saved), true, "包含数据的同
 assert.equal(shouldApplyBundledSnapshot(empty, empty), true, "首次启动时允许应用空初始快照");
 
 const remoteSnapshot = { ...empty, recipes: [recipeRecord("r2", "红烧鱼")] };
+const remoteText = `${JSON.stringify(remoteSnapshot, null, 2)}\n`;
 const readCalls = [];
 const loadedRemote = await loadRemoteSnapshot(async (url) => {
   readCalls.push(url);
-  if (url === GITHUB_API_URL) return { ok: true, json: async () => ({ sha: "read-sha" }) };
-  return { ok: true, json: async () => remoteSnapshot };
+  if (url === GITHUB_API_URL) throw new Error("读取公开数据不应调用受限的 GitHub API");
+  return { ok: true, text: async () => remoteText };
 });
-assert.deepEqual(loadedRemote, { snapshot: remoteSnapshot, sha: "read-sha" }, "读取 GitHub 应同时返回完整快照和基准 SHA");
-assert.equal(readCalls.length, 3, "读取时应在 raw 文件前后各校验一次 SHA");
-assert.match(readCalls[1], /raw\.githubusercontent\.com\/yatxuan123\/family-menu-planner\/main\/data\/family-menu-data\.json/, "应读取已确认的公开 raw 文件");
-
-let raceMetadataReads = 0;
-await assert.rejects(
-  () => loadRemoteSnapshot(async (url) => {
-    if (url !== GITHUB_API_URL) return { ok: true, json: async () => remoteSnapshot };
-    raceMetadataReads += 1;
-    return { ok: true, json: async () => ({ sha: raceMetadataReads === 1 ? "before-sha" : "after-sha" }) };
-  }),
-  RemoteConflictError,
-  "raw 读取期间远程 SHA 变化时不应接受不一致快照",
-);
+assert.deepEqual(loadedRemote, { snapshot: remoteSnapshot, sha: await computeGitBlobSha(remoteText) }, "读取 GitHub 应返回快照及本地计算的 Git Blob SHA");
+assert.equal(readCalls.length, 1, "读取公开数据不应消耗 GitHub API 配额");
+assert.match(readCalls[0], /raw\.githubusercontent\.com\/yatxuan123\/family-menu-planner\/main\/data\/family-menu-data\.json/, "应读取已确认的公开 raw 文件");
+assert.equal(await computeGitBlobSha("hello\n"), "ce013625030ba8dba906f756967f9e9ca394464a", "本地 SHA 应与 git hash-object 结果一致");
 
 const apiCalls = [];
 const unicodeSnapshot = { ...empty, recipes: [recipeRecord("r3", "芹菜香干")] };

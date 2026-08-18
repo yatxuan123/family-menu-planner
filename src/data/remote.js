@@ -20,7 +20,7 @@ async function responseMessage(response) {
   }
 }
 
-async function readSnapshot(url, label, fetchImpl) {
+async function readSnapshotText(url, label, fetchImpl) {
   let response;
   try {
     response = await fetchImpl(url, { cache: "no-store" });
@@ -28,17 +28,23 @@ async function readSnapshot(url, label, fetchImpl) {
     throw new Error(`${label}失败：${error.message}`);
   }
   if (!response.ok) throw new Error(`${label}失败：${await responseMessage(response)}`);
+  let text;
+  try {
+    text = await response.text();
+  } catch (error) {
+    throw new Error(`${label}返回内容读取失败：${error.message}`);
+  }
   let snapshot;
   try {
-    snapshot = await response.json();
+    snapshot = JSON.parse(text);
   } catch (error) {
     throw new Error(`${label}返回的内容不是有效 JSON：${error.message}`);
   }
-  return validateSnapshot(snapshot);
+  return { snapshot: validateSnapshot(snapshot), text };
 }
 
-export function loadBundledSnapshot(fetchImpl = fetch) {
-  return readSnapshot(BUNDLED_DATA_URL, "读取同项目菜单数据", fetchImpl);
+export async function loadBundledSnapshot(fetchImpl = fetch) {
+  return (await readSnapshotText(BUNDLED_DATA_URL, "读取同项目菜单数据", fetchImpl)).snapshot;
 }
 
 function githubHeaders(token) {
@@ -69,11 +75,18 @@ async function readGithubMetadata(token, fetchImpl) {
 }
 
 export async function loadRemoteSnapshot(fetchImpl = fetch) {
-  const before = await readGithubMetadata("", fetchImpl);
-  const snapshot = await readSnapshot(DEFAULT_REMOTE_URL, "读取 GitHub 菜单数据", fetchImpl);
-  const after = await readGithubMetadata("", fetchImpl);
-  if (before.sha !== after.sha) throw new RemoteConflictError();
-  return { snapshot, sha: after.sha };
+  const { snapshot, text } = await readSnapshotText(DEFAULT_REMOTE_URL, "读取 GitHub 菜单数据", fetchImpl);
+  return { snapshot, sha: await computeGitBlobSha(text) };
+}
+
+export async function computeGitBlobSha(text) {
+  const content = new TextEncoder().encode(text);
+  const header = new TextEncoder().encode(`blob ${content.byteLength}\0`);
+  const gitObject = new Uint8Array(header.byteLength + content.byteLength);
+  gitObject.set(header);
+  gitObject.set(content, header.byteLength);
+  const digest = await crypto.subtle.digest("SHA-1", gitObject);
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
 function encodeBase64(text) {

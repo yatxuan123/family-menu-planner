@@ -49,7 +49,7 @@ https://raw.githubusercontent.com/yatxuan123/family-menu-planner/main/data/famil
 https://api.github.com/repos/yatxuan123/family-menu-planner/contents/data/family-menu-data.json
 ```
 
-手动读取时同时获取当前文件 SHA，并把它作为当前会话的同步基准。保存前重新读取远程 SHA，只有它仍与基准一致时才使用 Fine-grained Token 和 Contents API PUT 完整快照，提交信息为 `chore: 更新家庭菜单数据`。Token 需要仓库 `Contents: Read and write` 权限。
+手动读取只访问公开 raw 文件，并在浏览器本地按 Git Blob 规则计算当前文件 SHA，把它作为当前会话的同步基准，因此不消耗 GitHub API 的匿名请求额度。保存前使用 Token 读取远程 SHA，只有它仍与基准一致时才通过 Contents API PUT 完整快照，提交信息为 `chore: 更新家庭菜单数据`。Token 需要仓库 `Contents: Read and write` 权限。
 
 ## 并发与错误处理
 
